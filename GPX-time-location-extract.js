@@ -28,7 +28,7 @@
 *  Create StandardPixel namespace, if not already there.
 */
 
-SP = SP || {};
+window.SP = window.SP || {};
 
 (function() {
 	
@@ -38,25 +38,6 @@ SP = SP || {};
 		*  Globals
 		***/
 		var registered_events;
-		
-		/***
-		*  Utility functions
-		***/
-		
-		/*
-		*  Type checks
-		*/
-		function isObject(thing){
-			return Object.prototype.toString.call(thing) === "[object Object]";
-		};
-		
-		function isFunction(thing){
-			return Object.prototype.toString.call(thing) === "[object Function]";
-		};
-		
-		function isString(thing){
-			return Object.prototype.toString.call(thing) === "[object String]";
-		};
 		
 		/*
 		*  Parses gpx string usig browser native xml parser
@@ -79,16 +60,16 @@ SP = SP || {};
 			
 			var i;
 			
-			if(isObject(registered_events) && registered_events[event]) {
+			if(SP.util.isObject(registered_events) && registered_events[event]) {
 				return true;
 			} else {
 				
-				if(isObject(options) && isObject(options.when)) {
+				if(SP.util.isObject(options) && SP.util.isObject(options.when)) {
 				
 					registered_events = {};
 				
 					for(var i in options.when) {
-						if(isFunction(options.when[i])) {
+						if(SP.util.isFunction(options.when[i])) {
 							registered_events[i] = options.when[i];
 						} else {
 							return false;
@@ -113,7 +94,7 @@ SP = SP || {};
 		function triggerEvent(event) {
 			
 			if(hasEvent(event)) {
-				if(isObject(registered_events) && registered_events[event]) {
+				if(SP.util.isObject(registered_events) && registered_events[event]) {
 						registered_events[event].apply(this, {
 							name : event
 						});
