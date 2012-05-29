@@ -28,7 +28,7 @@
 *  Create StandardPixel namespace, if not already there.
 */
 
-SP = SP || {};
+window.SP = window.SP || {};
 
 (function() {
 	
