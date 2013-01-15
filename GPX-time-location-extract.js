@@ -28,9 +28,30 @@
 *  Create StandardPixel namespace, if not already there.
 */
 
-window.SP = window.SP || {};
-
 (function() {
+	
+	var SP = {};
+
+	SP.util = {
+
+		name : 'util',
+
+		/*
+		*  Type checks
+		*/
+		isObject : function(thing){
+			return Object.prototype.toString.call(thing) === "[object Object]";
+		},
+
+		isFunction : function(thing){
+			return Object.prototype.toString.call(thing) === "[object Function]";
+		},
+
+		isString : function(thing){
+			return Object.prototype.toString.call(thing) === "[object String]";
+		}
+
+	}
 	
 	function GPXTimeLocationExtract(data, options) {
 		
@@ -185,5 +206,13 @@ window.SP = window.SP || {};
 	*  Set constructor to StandardPixel namespace
 	***/
 	SP.GPXTimeLocationExtract = GPXTimeLocationExtract;
+	
+	if(exports) {
+		exports.SP = SP;
+	}
+	
+	if(window) {
+		window.SP = SP;
+	}
 	
 })();

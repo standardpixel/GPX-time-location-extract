@@ -1,0 +1,25 @@
+{
+  "name": "gpx-time-location-extract",
+  "preferGlobal": "false",
+  "version": "0.1.1",
+  "author": "Eric Gelinas about@standardpixel.com",
+  "description": "Extracts time and locations from GPX files",
+  "contributors": [ 
+    {
+      "name": "Eric Gelinas",
+      "email": "eric@standardpixel.com"
+    } 
+  ],
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/standardpixel/StandardPixel-util.git"
+  },
+  "dependencies" : {
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
