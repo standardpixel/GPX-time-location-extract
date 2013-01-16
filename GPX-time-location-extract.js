@@ -207,12 +207,6 @@
 	***/
 	SP.GPXTimeLocationExtract = GPXTimeLocationExtract;
 	
-	if(exports) {
-		exports.SP = SP;
-	}
-	
-	if(window) {
-		window.SP = SP;
-	}
+	exports.SP = SP;
 	
 })();
